@@ -1,31 +1,7 @@
-# eladmin
-
-项目基于 Spring Boot 2.1.0 、 Spring boot Jpa、 Spring Security、redis、Vue的前后端分离的权限管理系统，项目采用分模块开发方式， 权限控制采用 RBAC（Role-Based Access Control，基于角色的访问控制），前端菜单支持动态路由
-
-#### 前端源码
-eladmin-qt和eladmin-qd只是命名方式的区别，无其他区别
-- 码云：[https://gitee.com/elunez/eladmin-qt](https://gitee.com/elunez/eladmin-qt)
-- github：[https://github.com/elunez/eladmin-qd](https://github.com/elunez/eladmin-qd)
-
 #### eladmin开发文档
 [http://docs.auauz.net/#/](http://docs.auauz.net/#/)
 
-#### 预览地址
-[http://auauz.net](http://auauz.net)
 
-##### 用户账号密码
-
-- 管理员： admin
-- 测试用户： test
-- 密码： 123456
-
-#### 开发环境
-
-- JDK：8
-- IDE：IntelliJ IDEA （后端）
-- IDE：JetBrains WebStorm  （前端）
-- 依赖管理：Maven
-- 数据库：MySQL 5.5.59
 
 #### 功能模块
 ```
@@ -85,48 +61,5 @@ eladmin-qt和eladmin-qd只是命名方式的区别，无其他区别
 - eladmin-tools 系统第三方工具模块
 - eladmin-generator 系统代码生成模块
 ```
-#### 后端技术栈
 
-- 基础框架：Spring Boot 2.1.0.RELEASE
-- 持久层框架：Spring boot Jpa
-- 安全框架：Spring Security
-- 缓存框架：Redis
-- 日志打印：logback+log4jdbc
-- 接口文档 swagger2
-- 其他：fastjson、aop、MapStruct等
 
-#### 前端技术栈
-- node
-- vue
-- vue-router
-- axios
-- element ui
-
-#### 系统预览
-<table>
-    <tr>
-        <td><img src="https://i.loli.net/2018/12/22/5c1e10c781eec.png"/></td>
-        <td><img src="https://i.loli.net/2018/12/22/5c1e10c7890ab.png"/></td>
-    </tr>
-    <tr>
-        <td><img src="https://i.loli.net/2019/02/28/5c7795b707347.png"/></td>
-        <td><img src="https://i.loli.net/2018/12/22/5c1e10c7b089b.png"/></td>
-    </tr>
-    <tr>
-        <td><img src="https://i.loli.net/2018/12/22/5c1e10c7b9c30.png"/></td>
-        <td><img src="https://i.loli.net/2018/12/22/5c1e10c7b7504.png"/></td>
-    </tr>
-    <tr>
-        <td><img src="https://i.loli.net/2018/12/22/5c1e10c7a9f7d.png"/></td>
-		<td><img src="https://i.imgur.com/FzVaAlS.png"/></td>
-    </tr>
-    <tr>
-        <td><img src="https://i.imgur.com/ah3X2HG.png"/></td>
-    </tr>
-</table>
-
-#### 反馈交流
-
-- QQ交流群：<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=90830191a40600e3a07acdcc4864890fca50c8e3ca1772e7e288a561d576f6c4"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="Quella/el-admin" title="Quella/el-admin"></a>
-
-- 作者邮箱：elunez@qq.com

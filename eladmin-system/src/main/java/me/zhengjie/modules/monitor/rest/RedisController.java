@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.*;
  * @author jie
  * @date 2018-12-10
  */
-@RestController
-@RequestMapping("api")
+//@RestController
+//@RequestMapping("api")
 public class RedisController {
 
     @Autowired

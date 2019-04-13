@@ -17,9 +17,10 @@ import java.util.List;
  * @author jie
  * @date 2018-12-10
  */
-@Service
+//@Service
 public class RedisServiceImpl implements RedisService {
 
+//   bean在 RedisConfig定义的
     @Autowired
     JedisPool pool;
 
