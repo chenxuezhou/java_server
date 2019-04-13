@@ -4,8 +4,17 @@
 <#if columns??>
   <#list columns as column>
   <#if column.changeColumnName != 'id'>
-      <el-form-item label="<#if column.columnComment != ''>${column.columnComment}<#else>${column.changeColumnName}</#if>">
-        <el-input v-model="form.${column.changeColumnName}" style="width: 370px;"/>
+      <el-form-item label="<#if column.columnComment != ''>${column.columnComment}<#else>${column.changeColumnName}</#if>" prop="${column.changeColumnName}">
+        <#if column.columnType == 'Timestamp'>
+            <el-date-picker
+                    v-model="form.${column.changeColumnName}"
+                    type="date"
+                    placeholder="选择日期">
+            </el-date-picker>
+        <#else>
+            <el-input v-model="form.${column.changeColumnName}" style="width: 370px;"/>
+        </#if>
+
       </el-form-item>
   </#if>
   </#list>
@@ -40,6 +49,18 @@ export default {
         ${column.changeColumnName}: ''<#if column_has_next>,</#if>
     </#list>
 </#if>
+      },
+      rules: {
+          author: [
+              { required: true, message: '作者不能为空', trigger: 'blur' }
+          ],
+      <#if columns??>
+        <#list columns as column>
+        ${column.changeColumnName}: [
+            {<#if column.isNullable == 'YES'>required: true,message:'${column.columnComment}',trigger: 'blur'</#if>}
+        ]<#if column_has_next>,</#if>
+        </#list>
+      </#if>
       }
     }
   },
