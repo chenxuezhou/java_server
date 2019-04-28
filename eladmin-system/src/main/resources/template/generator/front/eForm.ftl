@@ -57,7 +57,7 @@ export default {
       <#if columns??>
         <#list columns as column>
         ${column.changeColumnName}: [
-            {<#if column.isNullable == 'YES'>required: true,message:'${column.columnComment}',trigger: 'blur'</#if>}
+            {<#if column.isNullable == 'NO'>required: true,message:'${column.columnComment}',trigger: 'blur'</#if>}
         ]<#if column_has_next>,</#if>
         </#list>
       </#if>
