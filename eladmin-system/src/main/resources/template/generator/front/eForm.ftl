@@ -1,6 +1,8 @@
 <template>
   <el-dialog :append-to-body="true" :visible.sync="dialog" :title="isAdd ? '新增' : '编辑'" width="500px">
     <el-form ref="form" :model="form" :rules="rules" size="small" label-width="80px">
+    <#assign sel=false/>
+
 <#if columns??>
   <#list columns as column>
   <#if column.changeColumnName != 'id'>
@@ -9,9 +11,17 @@
             <el-date-picker
                     v-model="form.${column.changeColumnName}"
                     type="date"
+                    style="width: 370px;"
                     placeholder="选择日期">
             </el-date-picker>
-        <#else>
+            <#elseif column.columnName?ends_with("_id")>
+                <#assign sel=true/>
+                <#assign selName=column.columnName?substring(0,column.columnName?last_index_of("_id"))/>
+                <el-select v-model="form.${column.changeColumnName}" placeholder="请选择" style="width: 370px;">
+                    <el-option v-for="item in options" :key="item.id" :label="item.name" :value="item.id">
+                    </el-option>
+                </el-select>
+            <#else >
             <el-input v-model="form.${column.changeColumnName}" style="width: 370px;"/>
         </#if>
 
@@ -29,6 +39,10 @@
 
 <script>
 import { add, edit } from '@/api/${changeClassName}'
+<#if sel>
+import { ${selName} } from "@/sqlMap.js";
+</#if>
+
 export default {
   props: {
     isAdd: {
@@ -56,14 +70,26 @@ export default {
           ],
       <#if columns??>
         <#list columns as column>
+            <#if column.isNullable == 'NO'>
         ${column.changeColumnName}: [
-            {<#if column.isNullable == 'NO'>required: true,message:'${column.columnComment}',trigger: 'blur'</#if>}
-        ]<#if column_has_next>,</#if>
+            {required: true,message:'${column.columnComment}',trigger: 'blur'}
+        ]<#if column_has_next>,</#if></#if>
         </#list>
       </#if>
-      }
+      },
+      options:[]
     }
   },
+<#if sel>
+    created() {
+        var sql = ${selName}.getAll
+        this.$http.post("action", {
+            sql: sql
+        }).then(res => {
+            this.options=res.data
+    });
+    },
+</#if>
   methods: {
     cancel() {
       this.resetForm()
