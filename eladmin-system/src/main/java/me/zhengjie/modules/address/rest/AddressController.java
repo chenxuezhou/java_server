@@ -32,14 +32,14 @@ public class AddressController {
 
     @Log("查询Address")
     @GetMapping(value = "/address")
-    @PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN','PERMISSION_ALL')")
     public ResponseEntity getAddresss(AddressDTO resources, Pageable pageable){
         return new ResponseEntity(addressQueryService.queryAll(resources,pageable),HttpStatus.OK);
     }
 
     @Log("新增Address")
     @PostMapping(value = "/address")
-    @PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN','PERMISSION_ALL')")
     public ResponseEntity create(@Validated @RequestBody Address resources){
         if (resources.getId() != null) {
             throw new BadRequestException("A new "+ ENTITY_NAME +" cannot already have an ID");
@@ -49,7 +49,7 @@ public class AddressController {
 
     @Log("修改Address")
     @PutMapping(value = "/address")
-    @PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN','PERMISSION_ALL')")
     public ResponseEntity update(@Validated @RequestBody Address resources){
         if (resources.getId() == null) {
             throw new BadRequestException(ENTITY_NAME +" ID Can not be empty");
@@ -60,7 +60,7 @@ public class AddressController {
 
     @Log("删除Address")
     @DeleteMapping(value = "/address/{id}")
-    @PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN','PERMISSION_ALL')")
     public ResponseEntity delete(@PathVariable Long id){
         addressService.delete(id);
         return new ResponseEntity(HttpStatus.OK);

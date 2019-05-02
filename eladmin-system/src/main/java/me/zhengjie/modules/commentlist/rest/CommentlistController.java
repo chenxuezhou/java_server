@@ -32,14 +32,14 @@ public class CommentlistController {
 
     @Log("查询Commentlist")
     @GetMapping(value = "/commentlist")
-    @PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN','PERMISSION_ALL')")
     public ResponseEntity getCommentlists(CommentlistDTO resources, Pageable pageable){
         return new ResponseEntity(commentlistQueryService.queryAll(resources,pageable),HttpStatus.OK);
     }
 
     @Log("新增Commentlist")
     @PostMapping(value = "/commentlist")
-    @PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN','PERMISSION_ALL')")
     public ResponseEntity create(@Validated @RequestBody Commentlist resources){
         if (resources.getId() != null) {
             throw new BadRequestException("A new "+ ENTITY_NAME +" cannot already have an ID");
@@ -49,7 +49,7 @@ public class CommentlistController {
 
     @Log("修改Commentlist")
     @PutMapping(value = "/commentlist")
-    @PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN','PERMISSION_ALL')")
     public ResponseEntity update(@Validated @RequestBody Commentlist resources){
         if (resources.getId() == null) {
             throw new BadRequestException(ENTITY_NAME +" ID Can not be empty");
@@ -60,7 +60,7 @@ public class CommentlistController {
 
     @Log("删除Commentlist")
     @DeleteMapping(value = "/commentlist/{id}")
-    @PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN','PERMISSION_ALL')")
     public ResponseEntity delete(@PathVariable Long id){
         commentlistService.delete(id);
         return new ResponseEntity(HttpStatus.OK);

@@ -32,14 +32,14 @@ public class VOrderController {
 
     @Log("查询VOrder")
     @GetMapping(value = "/vOrder")
-    @PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN','PERMISSION_ALL')")
     public ResponseEntity getVOrders(VOrderDTO resources, Pageable pageable){
         return new ResponseEntity(vOrderQueryService.queryAll(resources,pageable),HttpStatus.OK);
     }
 
     @Log("新增VOrder")
     @PostMapping(value = "/vOrder")
-    @PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN','PERMISSION_ALL')")
     public ResponseEntity create(@Validated @RequestBody VOrder resources){
         if (resources.getId() != null) {
             throw new BadRequestException("A new "+ ENTITY_NAME +" cannot already have an ID");
@@ -49,7 +49,7 @@ public class VOrderController {
 
     @Log("修改VOrder")
     @PutMapping(value = "/vOrder")
-    @PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN','PERMISSION_ALL')")
     public ResponseEntity update(@Validated @RequestBody VOrder resources){
         if (resources.getId() == null) {
             throw new BadRequestException(ENTITY_NAME +" ID Can not be empty");
@@ -60,7 +60,7 @@ public class VOrderController {
 
     @Log("删除VOrder")
     @DeleteMapping(value = "/vOrder/{id}")
-    @PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN','PERMISSION_ALL')")
     public ResponseEntity delete(@PathVariable Long id){
         vOrderService.delete(id);
         return new ResponseEntity(HttpStatus.OK);
