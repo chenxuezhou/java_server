@@ -85,3 +85,4 @@
 	}], changeClassName = user
 }
 
+select column_name, is_nullable, data_type, column_comment, column_key from information_schema.columns where table_name = 表名 and table_schema = (select database()) order by ordinal_position

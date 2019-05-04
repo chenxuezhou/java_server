@@ -26,6 +26,12 @@ public class GeneratorServiceImpl implements GeneratorService {
     @PersistenceContext
     private EntityManager em;
 
+    /**
+     * 获得所有表名
+     * @param name
+     * @param startEnd
+     * @return
+     */
     @Override
     public Object getTables(String name, int[] startEnd) {
         StringBuilder sql = new StringBuilder("select table_name tableName,create_time createTime from information_schema.tables where table_schema = (select database()) ");
