@@ -66,7 +66,12 @@ public class VOrderQueryService {
         public Predicate toPredicate(Root<VOrder> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder cb) {
 
             List<Predicate> list = new ArrayList<Predicate>();
-
+            if(!ObjectUtils.isEmpty(vOrder.getCusId())){
+                /**
+                 * 模糊
+                 */
+                list.add(cb.equal(root.get("cusId").as(String.class),vOrder.getCusId()));
+            }
                 Predicate[] p = new Predicate[list.size()];
                 return cb.and(list.toArray(p));
         }

@@ -73,6 +73,12 @@ public class CommentlistQueryService {
                     */
                     list.add(cb.like(root.get("comment").as(String.class),"%"+commentlist.getComment()+"%"));
                 }
+            if(!ObjectUtils.isEmpty(commentlist.getCusId())){
+                /**
+                 * 模糊
+                 */
+                list.add(cb.equal(root.get("cusId").as(String.class),commentlist.getCusId()));
+            }
                 Predicate[] p = new Predicate[list.size()];
                 return cb.and(list.toArray(p));
         }
