@@ -67,29 +67,11 @@ public class PubHouseQueryService {
 
             List<Predicate> list = new ArrayList<Predicate>();
 
-                if(!ObjectUtils.isEmpty(pubHouse.getToiletnum())){
-                    /**
-                    * 精确
-                    */
-                    list.add(cb.equal(root.get("toiletNum").as(String.class),pubHouse.getToiletnum()));
-                }
-                if(!ObjectUtils.isEmpty(pubHouse.getParlournum())){
-                    /**
-                    * 精确
-                    */
-                    list.add(cb.equal(root.get("parlourNum").as(String.class),pubHouse.getParlournum()));
-                }
                 if(!ObjectUtils.isEmpty(pubHouse.getName())){
                     /**
                     * 模糊
                     */
                     list.add(cb.like(root.get("name").as(String.class),"%"+pubHouse.getName()+"%"));
-                }
-                if(!ObjectUtils.isEmpty(pubHouse.getBedroomnum())){
-                    /**
-                    * 精确
-                    */
-                    list.add(cb.equal(root.get("bedroomNum").as(String.class),pubHouse.getBedroomnum()));
                 }
                 Predicate[] p = new Predicate[list.size()];
                 return cb.and(list.toArray(p));

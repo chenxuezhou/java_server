@@ -8,7 +8,7 @@ import org.springframework.cache.annotation.Cacheable;
 
 /**
 * @author jie
-* @date 2019-05-04
+* @date 2019-05-14
 */
 @CacheConfig(cacheNames = "pubHouse")
 public interface PubHouseService {

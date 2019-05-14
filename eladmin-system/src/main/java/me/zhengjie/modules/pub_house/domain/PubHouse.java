@@ -26,13 +26,13 @@ public class PubHouse implements Serializable {
     /**
      * 卫浴数目
      */
-    @Column(name = "toiletNum")
+    @Column(name = "toiletnum")
     private String toiletnum;
 
     /**
      * 客厅数目
      */
-    @Column(name = "parlourNum")
+    @Column(name = "parlournum")
     private String parlournum;
 
     /**
@@ -68,36 +68,36 @@ public class PubHouse implements Serializable {
     /**
      * 居室数目
      */
-    @Column(name = "bedroomNum")
+    @Column(name = "bedroomnum")
     private String bedroomnum;
 
     /**
      * 房屋类型
      */
-    @Column(name = "houseType")
+    @Column(name = "housetype")
     private String housetype;
 
     /**
      * 出租类型
      */
-    @Column(name = "rentalType")
+    @Column(name = "rentaltype")
     private String rentaltype;
 
     /**
      * 起租单位
      */
-    @Column(name = "rentalPeriodUnit")
+    @Column(name = "rentalperiodunit")
     private String rentalperiodunit;
 
     /**
      * 起租时间
      */
-    @Column(name = "rentalPeriod")
+    @Column(name = "rentalperiod")
     private String rentalperiod;
 
     /**
      * 价格
      */
-    @Column(name = "rentalPrice")
+    @Column(name = "rentalprice")
     private BigDecimal rentalprice;
 }

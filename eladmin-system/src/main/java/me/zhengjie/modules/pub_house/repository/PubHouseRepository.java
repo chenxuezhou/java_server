@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 /**
 * @author jie
-* @date 2019-05-04
+* @date 2019-05-14
 */
 public interface PubHouseRepository extends JpaRepository<PubHouse, Long>, JpaSpecificationExecutor {
 }
