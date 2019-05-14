@@ -8,7 +8,7 @@ import org.springframework.cache.annotation.Cacheable;
 
 /**
 * @author jie
-* @date 2019-05-12
+* @date 2019-05-13
 */
 @CacheConfig(cacheNames = "teaResource")
 public interface TeaResourceService {

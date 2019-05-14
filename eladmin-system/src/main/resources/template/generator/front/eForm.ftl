@@ -65,9 +65,6 @@ export default {
 </#if>
       },
       rules: {
-          author: [
-              { required: true, message: '作者不能为空', trigger: 'blur' }
-          ],
       <#if columns??>
         <#list columns as column>
             <#if column.isNullable == 'NO'>

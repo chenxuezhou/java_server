@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 /**
 * @author jie
-* @date 2019-05-12
+* @date 2019-05-13
 */
 @Entity
 @Data
@@ -43,8 +43,8 @@ public class TeaResource implements Serializable {
     /**
      * 文件后缀
      */
-    @Column(name = "sort")
-    private Integer sort;
+    @Column(name = "file_type")
+    private String fileType;
 
     /**
      * 是否是特色教案

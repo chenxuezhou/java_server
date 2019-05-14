@@ -6,7 +6,7 @@ import java.io.Serializable;
 
 /**
 * @author jie
-* @date 2019-05-12
+* @date 2019-05-13
 */
 @Data
 public class TeaResourceDTO implements Serializable {
@@ -34,7 +34,7 @@ public class TeaResourceDTO implements Serializable {
     /**
      * 文件后缀
      */
-    private Integer sort;
+    private String fileType;
 
     /**
      * 是否是特色教案

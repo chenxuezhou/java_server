@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 /**
 * @author jie
-* @date 2019-05-12
+* @date 2019-05-13
 */
 public interface TeaResourceRepository extends JpaRepository<TeaResource, Long>, JpaSpecificationExecutor {
 }
