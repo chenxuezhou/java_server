@@ -33,25 +33,25 @@ public class Topic implements Serializable {
     /**
      * 答案a
      */
-    @Column(name = "ans_a",nullable = false)
+    @Column(name = "ans_a")
     private String ansA;
 
     /**
      * 答案b
      */
-    @Column(name = "ans_b",nullable = false)
+    @Column(name = "ans_b")
     private String ansB;
 
     /**
      * 答案c
      */
-    @Column(name = "ans_c",nullable = false)
+    @Column(name = "ans_c")
     private String ansC;
 
     /**
      * 答案d
      */
-    @Column(name = "ans_d",nullable = false)
+    @Column(name = "ans_d")
     private String ansD;
 
     /**
